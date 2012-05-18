@@ -23,7 +23,7 @@ class circus::manager {
             command => "/sbin/initctl start circusd",
             unless  => "/sbin/initctl status circusd | grep -w running",
             require => [
-                Package["circus"],
+                #Package["circus"],
                 File["/etc/init/circusd.conf"],
                 File["/etc/circus.ini"],
             ];
