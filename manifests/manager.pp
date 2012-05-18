@@ -2,11 +2,11 @@ class circus::manager {
     $check_delay = 5
     $endpoint = "tcp://127.0.0.1:5555"
 
-    package {
-        "circus":
-            ensure => installed;
-    }
-
+    #    package {
+    #        "circus":
+    #            ensure => installed;
+    #    }
+    #
     # Our puppet doesn't have an upstart service provider, yet. Sigh.
     #service {
     #    "circusd":
