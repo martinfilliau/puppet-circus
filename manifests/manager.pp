@@ -1,6 +1,7 @@
 class circus::manager {
     $check_delay = 5
     $endpoint = "tcp://127.0.0.1:5555"
+    $stats_endpoint = "tcp://127.0.0.1:5557"
 
     #    package {
     #        "circus":
