@@ -3,11 +3,11 @@ class circus::manager {
     $endpoint = "tcp://127.0.0.1:5555"
     $stats_endpoint = "tcp://127.0.0.1:5557"
 
-    #    package {
-    #        "circus":
-    #            ensure => installed;
-    #    }
-    #
+    package { "circus":
+        ensure   => installed
+        provider => pip;
+    }
+
     # Our puppet doesn't have an upstart service provider, yet. Sigh.
     #service {
     #    "circusd":
