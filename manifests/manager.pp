@@ -4,7 +4,7 @@ class circus::manager {
     $stats_endpoint = "tcp://127.0.0.1:5557"
 
     package { "circus":
-        ensure   => installed
+        ensure   => installed,
         provider => pip;
     }
 
