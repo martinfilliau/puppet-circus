@@ -8,23 +8,22 @@ class circus::manager {
         provider => pip;
     }
 
-    # Our puppet doesn't have an upstart service provider, yet. Sigh.
-    #service {
-    #    "circusd":
-    #        ensure  => running,
-    #        enable  => true,
-    #        require => [
-    #            File["/etc/init/circusd.conf"],
-    #            File["/etc/circus.ini"],
-    #        ];
-    #}
+    service {
+        "circusd":
+            ensure  => running,
+            enable  => true,
+            require => [
+                File["/etc/init/circusd.conf"],
+                File["/etc/circus.ini"],
+            ];
+    }
 
     exec {
         "circusd-initctl-start":
             command => "/sbin/initctl start circusd",
             unless  => "/sbin/initctl status circusd | grep -w running",
             require => [
-                #Package["circus"],
+                Package["circus"],
                 File["/etc/init/circusd.conf"],
                 File["/etc/circus.ini"],
             ];
