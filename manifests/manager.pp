@@ -3,9 +3,14 @@ class circus::manager {
     $endpoint = "tcp://127.0.0.1:5555"
     $stats_endpoint = "tcp://127.0.0.1:5557"
 
-    package { "circus":
+    package { ["libzmq-dev", "python-gevent", "libevent-dev"]:
+        ensure => installed,
+    }
+
+    package { ["circus", "Mako", "MarkupSafe", "bottle"]:
         ensure   => installed,
-        provider => pip;
+        provider => pip,
+        require  => Package["libzmq-dev", "python-gevent", "libevent-dev"];
     }
 
     service {
