@@ -20,6 +20,7 @@ class circus::manager {
             require => [
                 File["/etc/init/circusd.conf"],
                 File["/etc/circus.ini"],
+                Package["circus"],
             ];
     }
 
