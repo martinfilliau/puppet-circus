@@ -17,6 +17,7 @@ class circus::manager {
         "circusd":
             ensure  => running,
             enable  => true,
+            provider => upstart,
             require => [
                 File["/etc/init/circusd.conf"],
                 File["/etc/circus.ini"],
