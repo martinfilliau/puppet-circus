@@ -36,6 +36,7 @@ class circus::manager {
             ];
         "circus-initctl-reload":
             command     => "/sbin/initctl restart circusd",
+            require     => Service['circusd'],
             refreshonly => true;
     }
 
