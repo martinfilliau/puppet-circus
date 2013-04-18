@@ -1,4 +1,4 @@
-class circus::manager {
+class circus::manager ($version = '0.7.0') {
     $check_delay = 5
     $endpoint = "tcp://127.0.0.1:5555"
     $stats_endpoint = "tcp://127.0.0.1:5557"
@@ -7,7 +7,7 @@ class circus::manager {
         ensure => installed,
     }
 
-    package { ["circus", "Mako", "MarkupSafe", "bottle"]:
+    package { ["circus==${version}"]:
         ensure   => installed,
         provider => pip,
         require  => Package["libzmq-dev", "python-gevent", "libevent-dev"];
