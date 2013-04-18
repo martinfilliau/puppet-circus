@@ -7,8 +7,8 @@ class circus::manager ($version = '0.7.0') {
         ensure => installed,
     }
 
-    package { ["circus==${version}"]:
-        ensure   => installed,
+    package { ["circus"]:
+        ensure   => $version,
         provider => pip,
         require  => Package["libzmq-dev", "python-gevent", "libevent-dev"];
     }
