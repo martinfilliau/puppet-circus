@@ -1,4 +1,4 @@
-class circus::manager ($version = '0.7.0') {
+class circus::manager ($version = '0.8.1') {
     $check_delay = 5
     $endpoint = "tcp://127.0.0.1:5555"
     $stats_endpoint = "tcp://127.0.0.1:5557"
